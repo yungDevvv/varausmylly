@@ -1,0 +1,101 @@
+
+ .dragging-booking .cursor-pointer:not(.opacity-50) {
+  transition: all 0.2s ease;
+}
+
+.dragging-booking .cursor-pointer:not(.opacity-50):hover {
+  background-color: rgba(34, 197, 94, 0.1);
+  transform: scale(1.02);
+  position: relative;
+  z-index: 10;
+} 
+
+/* .dragging-booking .cursor-pointer:not(.opacity-50):hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgb(34, 197, 94);
+  pointer-events: none;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+} */
+
+
+.booking-cell {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.booking-cell.first {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.booking-cell.middle {
+  border-radius: 0;
+  border-top: none;
+  margin-top: -1px;
+}
+
+.booking-cell.last {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-top: none;
+  margin-top: -1px;
+}
+
+.booking-cell.single {
+  border-radius: 0.5rem;
+}
+
+/* Booking styles */
+.booking-block {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.booking-block:hover {
+  transform: scale(1.02);
+  z-index: 20;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.booking-block .booking-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+
+/* DragOverlay styles */
+[data-dnd-overlay] {
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0px 15px 15px 0 rgba(34, 33, 81, 0.25);
+  background-color: white;
+  border-radius: 6px;
+  transform-origin: 0 0;
+  white-space: nowrap;
+  cursor: grabbing !important;
+}
+
+/* Target cell highlight */
+.cell-highlight {
+  position: relative;
+  overflow: visible;
+}
+
+.cell-highlight::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent 0%, rgba(34, 197, 94, 0.2) 100%);
+  border-radius: 4px;
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
